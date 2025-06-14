@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeeto login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            background: linear-gradient( to bottom, red , white ) ;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: Red;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+
+        .logo span {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4d4d;
+        }
+
+        .download-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            background-image: url('banner-image.jpg'); /* You'll replace this with your own banner image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .banner-text {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .banner-text h2 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .banner-text h1 {
+            font-size: 36px;
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+
+        .banner-text p {
+            font-size: 16px;
+        }
+
+        .wallet-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .wallet-balance {
+            display: flex;
+            align-items: center;
+        }
+
+        .wallet-balance img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        .wallet-balance span {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .wallet-balance h3 {
+            font-size: 20px;
+            color: #ff4d4d;
+            margin-left: 5px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .withdraw-btn {
+            background-color: #ffa500;
+        }
+
+        .deposit-btn {
+            background-color: #ff4d4d;
+        }
+
+        .feature-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background-color: #fff;
+        }
+
+        .feature {
+            width: 48%;
+            height: 100px;
+            border-radius: 10px;
+            overflow: hidden; /* Ensure image fits within rounded corners */
+        }
+
+        .feature img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure image fills the box without distortion */
+        }
+
+        .menu-section {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .menu-item img {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 5px;
+        }
+
+        .lottery-section {
+            padding: 15px;
+        }
+
+        .lottery-section h3 {
+            font-size: 18px;
+            color: #ff4d4d;
+            margin-bottom: 10px;
+        }
+
+        .lottery-section p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .game-card {
+            height: 150px;
+            border-radius: 10px;
+            overflow: hidden; /* Ensure image fits within rounded corners */
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure image fills the box without distortion */
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .nav-item img {
+            width: 25px;
+            height: 25px;
+            margin-bottom: 5px;
+        }
+
+        .nav-item.active {
+            color: #ff4d4d;
+        }
+
+        .nav-item.active img {
+            filter: brightness(0) saturate(100%) invert(39%) sepia(67%) saturate(5000%) hue-rotate(330deg) brightness(95%) contrast(95%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="logo-image.png" alt="JEETO Logo"> <!-- Replace with actual logo image -->
+                <span>JEETO</span>
+            </div>
+            <div class="download-icon">
+                <img src="download-icon.png" alt="Download"> <!-- Replace with actual download icon -->
+            </div>
+        </div>
+
+        <div class="banner">
+            <div class="banner-text">
+                <h2>SPECIAL ATTENDANCE BONUS PROVIDED BY JEETO</h2>
+                <h1>558RS</h1>
+                <p>CLAIM IT RIGHT AWAY</p>
+            </div>
+        </div>
+
+        <div class="wallet-section">
+            <div class="wallet-balance">
+                <img src="wallet-icon.png" alt="Wallet"> <!-- Replace with actual wallet icon -->
+                <span>Wallet balance</span>
+                <h3>₹0.85</h3>
+            </div>
+            <div class="action-buttons">
+                <button class="withdraw-btn">Withdraw</button>
+                <button class="deposit-btn">Deposit</button>
+            </div>
+        </div>
+
+        <div class="feature-section">
+            <div class="feature wheel-of-fortune">
+                <img src="Picsart_25-06-14_16-11-23-280.jpg" alt="Wheel of Fortune"> <!-- Replace with actual wheel image -->
+            </div>
+            <div class="feature vip-privileges">
+                <img src="Picsart_25-06-14_16-11-29-990.jpg" alt="VIP Privileges"> <!-- Replace with actual VIP image -->
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <div class="menu-item">
+                <img src="3574480-200.png" alt="Lobby"> <!-- Replace with actual lobby icon -->
+                <span>Lobby</span>
+            </div>
+            <div class="menu-item">
+                <img src="pngtree-vector-video-game-icon-png-image_780484.jpg" alt="Mini Game"> <!-- Replace with actual mini game icon -->
+                <span>Mini game</span>
+            </div>
+            <div class="menu-item">
+                <img src="777.png" alt="Slots"> <!-- Replace with actual slots icon -->
+                <span>Slots</span>
+            </div>
+            <div class="menu-item">
+                <img src="2118338.png" alt="Card"> <!-- Replace with actual card icon -->
+                <span>Card</span>
+            </div>
+            <div class="menu-item">
+                <img src="46f8704cbf9ef114a17b1d09706be66d.jpg" alt="Fishing"> <!-- Replace with actual fishing icon -->
+                <span>Fishing</span>
+            </div>
+        </div>
+
+        <div class="lottery-section">
+            <h3>Lottery</h3>
+            <p>The games are independently developed by our team, fun, fair, and safe</p>
+            <div class="games-grid">
+                <div class="game-card win-go">
+                    <img src="win-go-image.png" alt="Win Go"> <!-- Replace with actual Win Go image -->
+                </div>
+                <div class="game-card k3">
+                    <img src="k3-image.png" alt="K3"> <!-- Replace with actual K3 image -->
+                </div>
+                <div class="game-card five-d">
+                    <img src="5d-image.jpg" alt="5D"> <!-- Replace with actual 5D image -->
+                </div>
+                <div class="game-card trx-win">
+                    <img src="trx-win-image.png" alt="TRX Win"> <!-- Replace with actual TRX Win image -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <div class="nav-item">
+            <img src="free-heart-icon-3510-thumb.png" alt="Promotion"> <!-- Replace with actual promotion icon -->
+            <span>Promotion</span>
+        </div>
+        <div class="nav-item">
+            <img src="gift-211.png" alt="Activity"> <!-- Replace with actual activity icon -->
+            <span>Activity</span>
+        </div>
+        <div class="nav-item active">
+            <img src="game.jpg" alt="Game"> <!-- Replace with actual game icon -->
+            <span>Game</span>
+        </div>
+        <div class="nav-item">
+            <img src="3359235.png" alt="Wallet"> <!-- Replace with actual wallet icon -->
+            <span>Wallet</span>
+        </div>
+        <div class="nav-item">
+            <img src="pngtree-avatar-icon-profile-icon-member-login-vector.jpg" alt="Account"> <!-- Replace with actual account icon -->
+            <span>Account</span>
+        </div>
+    </div>
+</body>
+</html>
